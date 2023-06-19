@@ -1686,6 +1686,9 @@ html {
   border-radius: 8px;
   flex: 0 0 48px;
   height: 48px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
 }
 
 .cart .cart-form .cart-elements .cart-item .item-information .item-nav .count-block__button img {
