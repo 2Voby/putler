@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link
     rel="stylesheet"
-    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230625153607"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230625230418"
   />
-  <link rel="stylesheet" href="css/style.min.css?_v=20230625153607" />
+  <link rel="stylesheet" href="css/style.min.css?_v=20230625230418" />
   <title></title>
 </head>
 
@@ -790,8 +790,7 @@
 </div>
 
 
-    <div class="wrapper">
-      <main>
+    <div class="wrapper"><main>
   <section class="hero">
     <div class="hero__container">
       <div class="hero__content">
@@ -870,22 +869,7 @@
     </div>
   </section>
 </main>
-
-      <div class="page-decor">
-        <div class="page-decor__item page-decor__item-1">
-          <img src="img/decor1.png" alt="" />
-        </div>
-        <div class="page-decor__item page-decor__item-2">
-          <img src="img/decor2.png" alt="" />
-        </div>
-        <div class="page-decor__item page-decor__item-3">
-          <img src="img/decor3.png" alt="" />
-        </div>
-        <div class="page-decor__item page-decor__item-4">
-          <img src="img/decor4.png" alt="" />
-        </div>
-      </div>
-    </div>
+</div>
     <footer class="footer">
   <div class="footer__container">
     <div class="footer__content">
@@ -988,7 +972,20 @@
   </div>
 </footer>
 
-
+    <div class="page-decor">
+      <div class="page-decor__item page-decor__item-1">
+        <img src="img/decor1.png" alt="" />
+      </div>
+      <div class="page-decor__item page-decor__item-2">
+        <img src="img/decor2.png" alt="" />
+      </div>
+      <div class="page-decor__item page-decor__item-3">
+        <img src="img/decor3.png" alt="" />
+      </div>
+      <div class="page-decor__item page-decor__item-4">
+        <img src="img/decor4.png" alt="" />
+      </div>
+    </div>
     <script type="importmap">
       {
         "imports": {
@@ -1007,216 +1004,216 @@
       import { RectAreaLightHelper } from "RectAreaLightHelper";
       import { RectAreaLightUniformsLib } from "RectAreaLightUniformsLib";
 
-      document.addEventListener("DOMContentLoaded", function () {
-        let hero = document.querySelector(".hero");
-        let heroSwiper = hero.querySelector(".slider-block__slider");
-        let heroButtonPrew = heroSwiper.querySelector(
-          ".slider-block__slider-button-prev"
-        );
-        let heroButtonNext = heroSwiper.querySelector(
-          ".slider-block__slider-button-next"
-        );
-
-        heroButtonPrew.addEventListener("click", function () {
-          setTimeout(() => {
-            init();
-          }, 0);
-        });
-        heroButtonNext.addEventListener("click", function () {
-          setTimeout(() => {
-            init();
-          }, 0);
-        });
-
-        let container = document.querySelector(".swiper-slide-active");
-        let containerModel = container.querySelector("canvas");
-        let scene = null;
-        let camera = null;
-        let renderer = null;
-        let controls = null;
-
-        function removeScene() {
-          if (scene) {
-            let sceneCanvas = container.querySelector("canvas");
-            container.removeChild(sceneCanvas);
-            scene = null;
-            camera = null;
-            renderer = null;
-            controls = null;
-          }
+      let hero = document.querySelector(".hero");
+      let heroSwiper = hero.querySelector(".slider-block__slider");
+      let heroButtonPrew = heroSwiper.querySelector(
+        ".slider-block__slider-button-prev"
+      );
+      let heroButtonNext = heroSwiper.querySelector(
+        ".slider-block__slider-button-next"
+      );
+      let container = document.querySelector(".swiper-slide-active");
+      let containerModel = container.querySelector("canvas");
+      let scene = null;
+      let camera = null;
+      let renderer = null;
+      let controls = null;
+      heroButtonPrew.addEventListener("click", function () {
+        if (scene != null) {
+          removeScene();
         }
+        setTimeout(() => {
+          init();
+        }, 900);
+      });
+      heroButtonNext.addEventListener("click", function () {
+        if (scene != null) {
+          removeScene();
+        }
+        setTimeout(() => {
+          init();
+        }, 900);
+      });
 
-        function init() {
-          if (scene != null) {
-            removeScene();
-          }
-          let sliderItems = document.querySelectorAll(".slider-block__slide");
-          sliderItems.forEach((slide) => {
-            if (slide.classList.contains("swiper-slide-active")) {
-              container = slide;
+      function removeScene() {
+        if (scene) {
+          let heroSwiper = hero.querySelector(".slider-block__slider");
+          let swiperSlides = heroSwiper.querySelectorAll(
+            ".slider-block__slide"
+          );
+          swiperSlides.forEach((swiperSlide) => {
+            let sceneCanvas = swiperSlide.querySelector("canvas");
+            if (sceneCanvas) {
+              container.removeChild(sceneCanvas);
             }
           });
+          // let sceneCanvas = container.querySelector("canvas");
+          // container.removeChild(sceneCanvas);
+          scene = null;
+          camera = null;
+          renderer = null;
+          controls = null;
+        }
+      }
 
-          if (
-            container.getAttribute("articulus") == "00001" ||
-            container.getAttribute("articulus") == "00002"
-          ) {
-            containerModel = container.querySelector("canvas");
+      function init() {
+        let sliderItems = document.querySelectorAll(".slider-block__slide");
+        sliderItems.forEach((slide) => {
+          if (slide.classList.contains("swiper-slide-active")) {
+            container = slide;
+          }
+        });
 
-            //Scene
-            scene = new THREE.Scene();
+        if (
+          container.getAttribute("articulus") == "00001" ||
+          container.getAttribute("articulus") == "00002"
+        ) {
+          containerModel = container.querySelector("canvas");
 
-            //Camera
-            camera = new THREE.PerspectiveCamera(
-              75,
-              container.clientWidth / container.clientHeight,
-              0.1,
-              10000
-            );
+          //Scene
+          scene = new THREE.Scene();
 
-            // select model
+          //Camera
+          camera = new THREE.PerspectiveCamera(
+            75,
+            container.clientWidth / container.clientHeight,
+            0.1,
+            10000
+          );
+
+          // select model
+          if (container.getAttribute("articulus") == "00001") {
+            camera.position.set(500, 100, 800);
+          } else if (container.getAttribute("articulus") == "00002") {
+            camera.position.set(0, 0, 25);
+          }
+
+          //render
+          renderer = new THREE.WebGLRenderer({ antialias: true });
+          renderer.setSize(container.clientWidth, container.clientHeight);
+          renderer.setClearColor(0x000000, 0);
+          // вставка модели на сцену
+
+          // Model
+          {
+            const loader = new GLTFLoader();
             if (container.getAttribute("articulus") == "00001") {
-              camera.position.set(500, 100, 800);
+              loader.load(
+                "./files/models/putler-model/putin_with_rope.gltf",
+                (gltf) => {
+                  scene.add(gltf.scene);
+                  gltf.scene.position.set(-15, 150, 0);
+                  gltf.scene.scale.set(1.6, 1.6, 1.6);
+                  container.appendChild(renderer.domElement);
+                },
+                function (error) {
+                  console.log("Error: " + error);
+                }
+              );
             } else if (container.getAttribute("articulus") == "00002") {
-              camera.position.set(0, 0, 25);
+              loader.load(
+                "./files/models/ship-model/kraisler.gltf",
+                (gltf) => {
+                  scene.add(gltf.scene);
+                  gltf.scene.position.set(-2.5, 4, 0);
+                  // gltf.scene.scale.set(1.5, 1.5, 1.5);
+                  container.appendChild(renderer.domElement);
+                },
+                function (error) {
+                  console.log("Error: " + error);
+                }
+              );
             }
+          }
 
-            //render
-            renderer = new THREE.WebGLRenderer({ antialias: true });
-            renderer.setSize(container.clientWidth, container.clientHeight);
-            renderer.setClearColor(0x000000, 0);
-            // вставка модели на сцену
-
-            // Model
-            {
-              const loader = new GLTFLoader();
-              if (container.getAttribute("articulus") == "00001") {
-                loader.load(
-                  "./files/models/putler-model/putin_with_rope.gltf",
-                  (gltf) => {
-                    scene.add(gltf.scene);
-                    gltf.scene.position.set(0, 180, 0);
-                    gltf.scene.scale.set(1.5, 1.5, 1.5);
-                    container.appendChild(renderer.domElement);
-                  },
-                  function (error) {
-                    console.log("Error: " + error);
-                  }
-                );
-              } else if (container.getAttribute("articulus") == "00002") {
-                loader.load(
-                  "./files/models/ship-model/kraisler.gltf",
-                  (gltf) => {
-                    scene.add(gltf.scene);
-                    gltf.scene.position.set(-3, 2, 0);
-                    // gltf.scene.scale.set(1.5, 1.5, 1.5);
-                    container.appendChild(renderer.domElement);
-                  },
-                  function (error) {
-                    console.log("Error: " + error);
-                  }
-                );
-              }
+          {
+            if (container.getAttribute("articulus") == "00001") {
+              const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+              scene.add(ambientLight);
+            } else if (container.getAttribute("articulus") == "00002") {
+              const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+              scene.add(ambientLight);
             }
+          }
 
-            {
-              if (container.getAttribute("articulus") == "00001") {
-                const ambientLight = new THREE.AmbientLight(0xffffff, 1);
-                scene.add(ambientLight);
-              } else if (container.getAttribute("articulus") == "00002") {
-                const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
-                scene.add(ambientLight);
-              }
-            }
+          {
+            const light = new THREE.DirectionalLight(0xffffff, 1);
+            light.position.set(-2, 0, 10);
+            light.lookAt(0, -1, 0);
+            scene.add(light);
+            // Helper;
+            // const helper = new THREE.DirectionalLightHelper(light, 1);
+            // scene.add(helper);
+          }
 
-            {
-              const light = new THREE.DirectionalLight(0xffffff, 1);
-              light.position.set(-2, 0, 10);
-              light.lookAt(0, -1, 0);
-              scene.add(light);
-              // Helper;
-              // const helper = new THREE.DirectionalLightHelper(light, 1);
-              // scene.add(helper);
-            }
+          {
+            const light = new THREE.DirectionalLight(0xffffff, 0.1);
+            light.position.set(2, 0, 5);
+            light.lookAt(0, 1, 0);
+            scene.add(light);
+            // Helper;
+            // const helper = new THREE.DirectionalLightHelper(light, 1);
+            // scene.add(helper);
+          }
 
-            {
-              const light = new THREE.DirectionalLight(0xffffff, 0.1);
-              light.position.set(2, 0, 5);
-              light.lookAt(0, 1, 0);
-              scene.add(light);
-              // Helper;
-              // const helper = new THREE.DirectionalLightHelper(light, 1);
-              // scene.add(helper);
-            }
-
-            RectAreaLightUniformsLib.init();
-            {
+          RectAreaLightUniformsLib.init();
+          {
+            const rectLight = new THREE.RectAreaLight(0xffffff, 0.5, 100, 100);
+            if (container.getAttribute("articulus") == "00001") {
+              const rectLight = new THREE.RectAreaLight(0xffffff, 1, 100, 100);
+            } else if (container.getAttribute("articulus") == "00002") {
               const rectLight = new THREE.RectAreaLight(
                 0xffffff,
                 0.5,
                 100,
                 100
               );
-              if (container.getAttribute("articulus") == "00001") {
-                const rectLight = new THREE.RectAreaLight(
-                  0xffffff,
-                  1,
-                  100,
-                  100
-                );
-              } else if (container.getAttribute("articulus") == "00002") {
-                const rectLight = new THREE.RectAreaLight(
-                  0xffffff,
-                  0.5,
-                  100,
-                  100
-                );
-              }
-              rectLight.position.set(-10, 0, 0);
-              rectLight.rotation.y = Math.PI + Math.PI / 4;
-              scene.add(rectLight);
             }
-
-            {
-              const rectLight = new THREE.RectAreaLight(0xffffff, 1, 100, 100);
-              rectLight.position.set(10, 0, 0);
-              rectLight.rotation.y = Math.PI - Math.PI / 4;
-              scene.add(rectLight);
-            }
-
-            //OrbitControls
-            controls = new OrbitControls(camera, renderer.domElement);
-            controls.enableDamping = true;
-            controls.enableZoom = false;
-            controls.enablePan = false;
-
-            //Resize
-            window.addEventListener("resize", onWindowResize, false);
-
-            function onWindowResize() {
-              let slide = document.querySelector(".slider-block__slide");
-              camera.aspect = slide.clientWidth / slide.clientHeight;
-              camera.updateProjectionMatrix();
-
-              renderer.setSize(slide.clientWidth, slide.clientHeight);
-            }
-
-            // // Animate
-            function animate() {
-              requestAnimationFrame(animate);
-              controls.update();
-              if (scene) {
-                renderer.render(scene, camera);
-              }
-            }
-            animate();
+            rectLight.position.set(-10, 0, 0);
+            rectLight.rotation.y = Math.PI + Math.PI / 4;
+            scene.add(rectLight);
           }
+
+          {
+            const rectLight = new THREE.RectAreaLight(0xffffff, 1, 100, 100);
+            rectLight.position.set(10, 0, 0);
+            rectLight.rotation.y = Math.PI - Math.PI / 4;
+            scene.add(rectLight);
+          }
+
+          //OrbitControls
+          controls = new OrbitControls(camera, renderer.domElement);
+          controls.enableDamping = true;
+          controls.enableZoom = false;
+          controls.enablePan = false;
+
+          //Resize
+          window.addEventListener("resize", onWindowResize, false);
+
+          function onWindowResize() {
+            let slide = document.querySelector(".slider-block__slide");
+            camera.aspect = slide.clientWidth / slide.clientHeight;
+            camera.updateProjectionMatrix();
+            renderer.setSize(slide.clientWidth, slide.clientHeight);
+          }
+
+          // Animate
+          function animate() {
+            requestAnimationFrame(animate);
+            if (controls) {
+              controls.update();
+            }
+            if (scene) {
+              renderer.render(scene, camera);
+            }
+          }
+          animate();
         }
-        init();
-      });
+      }
+      init();
     </script>
 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230625153607"></script>
-    <script src="js/app.min.js?_v=20230625153607"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230625230418"></script>
+    <script src="js/app.min.js?_v=20230625230418"></script>
   </body>
 </html>

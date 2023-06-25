@@ -41,7 +41,7 @@
 
 html,
 body {
-  min-height: 100%;
+  min-height: 100vh;
   line-height: 1;
   font-style: normal;
   scroll-behavior: smooth;
@@ -90,7 +90,7 @@ html {
   font-family: "Mariupol";
   background-color: #333333;
   position: relative;
-  min-height: 100%;
+  min-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
 }
@@ -410,31 +410,31 @@ html {
 }
 
 .page-decor__item-1 {
-  top: 100px;
+  top: 80px;
   left: -230px;
-  width: 460px;
-  height: 460px;
+  width: 517px;
+  height: 495px;
 }
 
 .page-decor__item-2 {
-  top: 300px;
-  left: -250px;
+  top: 330px;
+  left: -190px;
   width: 460px;
   height: 460px;
 }
 
 .page-decor__item-3 {
-  bottom: 78px;
-  right: -112px;
-  width: 300px;
-  height: 300px;
+  bottom: 64px;
+  right: -172px;
+  width: 400px;
+  height: 400px;
 }
 
 .page-decor__item-4 {
-  bottom: -36px;
-  right: -93px;
-  width: 300px;
-  height: 300px;
+  bottom: -187px;
+  right: -179px;
+  width: 500px;
+  height: 500px;
 }
 
 .burger {
@@ -3221,12 +3221,12 @@ html {
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-  border-radius: 34.693877551%;
+  border-radius: 245px;
   position: relative;
 }
 
 .hero .slider-block__slide canvas {
-  border-radius: 34.693877551%;
+  border-radius: 245px;
   background: rgb(105, 105, 105);
   background: radial-gradient(circle, rgb(105, 105, 105) 50%, rgb(82, 82, 82) 75%);
   position: absolute;
@@ -3293,27 +3293,27 @@ html {
 }
 
 .hero .slider-block__slide .slider-slide__circle {
+  display: none;
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   width: 145%;
-  display: none;
   z-index: 5;
 }
 
 .hero .slider-block__slide .slider-slide__label {
   position: absolute;
   top: 24%;
-  left: 60%;
-  transform: rotateZ(76deg);
+  left: 57%;
+  transform: rotateZ(71deg);
   width: 71.4285714286%;
   height: 14.4578313253%;
   z-index: 4;
 }
 
 .hero .slider-block__slide.swiper-slide-active {
-  transform: scale(1.35) !important;
+  transform: scale(1.395) !important;
   background: #5a5a5a !important;
   background: radial-gradient(circle, rgb(105, 105, 105) 50%, rgb(82, 82, 82) 75%) !important;
   background-repeat: no-repeat !important;
@@ -3357,7 +3357,7 @@ html {
   align-items: center;
   max-width: 240px;
   margin: 0 auto;
-  margin-top: auto;
+  margin-top: 1rem;
 }
 
 .hero .slider-block__instruction img {
@@ -3485,6 +3485,10 @@ html {
 
   .hero .slider-block__slider {
     flex: 0 1 700px;
+  }
+
+  .hero .slider-block__slider-wrapper {
+    min-height: 594px;
   }
 
   .hero .slider-block__slide {
@@ -5951,7 +5955,7 @@ html {
 }
 
   .hero {
-    padding-top: 85px;
+    padding-top: 105px;
   }
 
   .hero__content {
@@ -6001,17 +6005,17 @@ html {
   }
 
   .hero .slider-block__slider-wrapper {
-    min-height: 450px;
+    min-height: 498px;
   }
 
   .hero .slider-block__slide {
-    min-height: 284px;
-    max-height: 284px;
-    width: 200px;
+    min-height: 357px;
+    max-height: 357px;
+    width: 251px;
   }
 
-  .hero .slider-block__slide.swiper-slide-active {
-    transform: scale(1.35) !important;
+  .hero .slider-block__instruction {
+    margin-top: 0.5rem;
   }
 
   .footer {
@@ -6025,6 +6029,7 @@ html {
     display: flex;
     flex-direction: column;
     row-gap: 16px;
+    z-index: 5;
   }
 
   .footer .navigation-language {
@@ -6880,6 +6885,18 @@ html {
   }
 }
 
+@media (max-width: 485px) {
+  .hero .slider-block__slider-wrapper {
+    min-height: 375px;
+  }
+
+  .hero .slider-block__slide {
+    min-height: 265px;
+    max-height: 265px;
+    width: 188px;
+  }
+}
+
 @media (max-width: 426px) {
   .balance-block .balance-descr {
     left: -18%;
@@ -6892,7 +6909,7 @@ html {
   }
 
   .hero {
-    padding-top: 75px;
+    padding-top: 95px;
   }
 
   .hero .slider-block__slider-button-prev {
