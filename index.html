@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link
     rel="stylesheet"
-    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230619231356"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230625122301"
   />
-  <link rel="stylesheet" href="css/style.min.css?_v=20230619231356" />
+  <link rel="stylesheet" href="css/style.min.css?_v=20230625122301" />
   <title></title>
 </head>
 
@@ -815,9 +815,11 @@
           <div class="slider-block__slider-wrapper swiper-wrapper">
             <div
               articulus="00001"
-              class="slider-block__slide slider-slide swiper-slide"
+              class="slider-block__slide slider-slide swiper-slide swiper-slide-active"
             >
-              <div class="slider-slide__figure-block"></div>
+              <div class="slider-slide__image">
+                <img src="img/putler-nobg.png" alt="" />
+              </div>
               <div class="slider-slide__circle">
                 <img src="img/active-circle.png" alt="" />
               </div>
@@ -829,7 +831,9 @@
               articulus="00002"
               class="slider-block__slide slider-slide swiper-slide"
             >
-              <div class="slider-slide__figure-block"></div>
+              <div class="slider-slide__image">
+                <img src="img/kraisler-nobg.png" alt="" />
+              </div>
               <div class="slider-slide__circle">
                 <img src="img/active-circle.png" alt="" />
               </div>
@@ -837,18 +841,17 @@
                 <img src="img/slide-label.png" alt="" />
               </div>
             </div>
-            <div
+            <!-- <div
               articulus="00003"
               class="slider-block__slide slider-slide swiper-slide"
             >
-              <div class="slider-slide__figure-block"></div>
               <div class="slider-slide__circle">
                 <img src="img/active-circle.png" alt="" />
               </div>
               <div class="slider-slide__label">
                 <img src="img/slide-label.png" alt="" />
               </div>
-            </div>
+            </div> -->
           </div>
           <div
             class="slider-block__slider-button slider-block__slider-button-prev swiper-button-prev"
@@ -988,7 +991,7 @@
 </footer>
 
 
-    <!-- <script type="importmap">
+    <script type="importmap">
       {
         "imports": {
           "three": "https://unpkg.com/three@0.139.0/build/three.module.js",
@@ -998,128 +1001,226 @@
           "RectAreaLightUniformsLib": "https://unpkg.com/three@0.139.0/examples/jsm/lights/RectAreaLightUniformsLib.js"
         }
       }
-    </script> -->
-    <!-- <script type="module">
+    </script>
+    <script type="module">
       import * as THREE from "three";
       import { OrbitControls } from "OrbitControls";
       import { GLTFLoader } from "GLTFLoader";
       import { RectAreaLightHelper } from "RectAreaLightHelper";
       import { RectAreaLightUniformsLib } from "RectAreaLightUniformsLib";
 
-      function init() {
-        let container = document.querySelectorAll(
-          ".slider-slide__figure-block"
+      document.addEventListener("DOMContentLoaded", function () {
+        let hero = document.querySelector(".hero");
+        let heroSwiper = hero.querySelector(".slider-block__slider");
+        let heroButtonPrew = heroSwiper.querySelector(
+          ".slider-block__slider-button-prev"
+        );
+        let heroButtonNext = heroSwiper.querySelector(
+          ".slider-block__slider-button-next"
         );
 
-        // let container = document.querySelector(".wrapper");
-
-        //Scene
-        const scene = new THREE.Scene();
-        scene.background = new THREE.Color("#E2DFE1");
-
-        //Camera
-        const camera = new THREE.PerspectiveCamera(75, 350 / 498, 0.1, 3000);
-        camera.position.set(0, 0.5, 1);
-
-        //render
-        const renderer = new THREE.WebGLRenderer({ antialias: true });
-        renderer.setSize(350, 498);
-
-        // container.appendChild(renderer.domElement);
-        container.forEach((slide) => {
-          slide.appendChild(renderer.domElement);
+        heroButtonPrew.addEventListener("click", function () {
+          setTimeout(() => {
+            init();
+          }, 0);
         });
-        let plain;
-        {
-          plain = new THREE.Mesh(
-            new THREE.PlaneGeometry(1000, 1000),
-            new THREE.MeshBasicMaterial({ color: "#E2DFE1" })
-          );
-          plain.reciveShadow = true;
-          plain.position.set(0, -1, 0);
-          plain.rotateX(-Math.PI / 2);
-          scene.add(plain);
+        heroButtonNext.addEventListener("click", function () {
+          setTimeout(() => {
+            init();
+          }, 0);
+        });
+
+        let container = document.querySelector(".swiper-slide-active");
+        let containerModel = container.querySelector("canvas");
+        let scene = null;
+        let camera = null;
+        let renderer = null;
+        let controls = null;
+
+        function removeScene() {
+          if (scene) {
+            let sceneCanvas = container.querySelector("canvas");
+            container.removeChild(sceneCanvas);
+            scene = null;
+            camera = null;
+            renderer = null;
+            controls = null;
+          }
         }
 
-        // Model
-        {
-          const loader = new GLTFLoader();
-          loader.load(
-            "./files/models/putler-model/untitled.gltf",
-            (gltf) => {
-              scene.add(gltf.scene);
-              gltf.scene.position.set(0, 0, 0); // Установите позицию модели
-              gltf.scene.scale.set(8, 8, 8); // Установите масштаб модели
-            },
-            function (error) {
-              console.log("Error: " + error);
+        function init() {
+          if (scene != null) {
+            removeScene();
+          }
+          let sliderItems = document.querySelectorAll(".slider-block__slide");
+          sliderItems.forEach((slide) => {
+            if (slide.classList.contains("swiper-slide-active")) {
+              container = slide;
             }
-          );
+          });
+
+          if (
+            container.getAttribute("articulus") == "00001" ||
+            container.getAttribute("articulus") == "00002"
+          ) {
+            containerModel = container.querySelector("canvas");
+
+            //Scene
+            scene = new THREE.Scene();
+
+            //Camera
+            camera = new THREE.PerspectiveCamera(
+              75,
+              container.clientWidth / container.clientHeight,
+              0.1,
+              10000
+            );
+
+            // select model
+            if (container.getAttribute("articulus") == "00001") {
+              camera.position.set(500, 100, 800);
+            } else if (container.getAttribute("articulus") == "00002") {
+              camera.position.set(0, 0, 25);
+            }
+
+            //render
+            renderer = new THREE.WebGLRenderer({ antialias: true });
+            renderer.setSize(container.clientWidth, container.clientHeight);
+            renderer.setClearColor(0x000000, 0);
+            // вставка модели на сцену
+
+            // Model
+            {
+              const loader = new GLTFLoader();
+              if (container.getAttribute("articulus") == "00001") {
+                loader.load(
+                  "./files/models/putler-model/putin_with_rope.gltf",
+                  (gltf) => {
+                    scene.add(gltf.scene);
+                    gltf.scene.position.set(0, 180, 0);
+                    gltf.scene.scale.set(1.5, 1.5, 1.5);
+                    container.appendChild(renderer.domElement);
+                  },
+                  function (error) {
+                    console.log("Error: " + error);
+                  }
+                );
+              } else if (container.getAttribute("articulus") == "00002") {
+                loader.load(
+                  "./files/models/ship-model/kraisler.gltf",
+                  (gltf) => {
+                    scene.add(gltf.scene);
+                    gltf.scene.position.set(-3, 2, 0);
+                    // gltf.scene.scale.set(1.5, 1.5, 1.5);
+                    container.appendChild(renderer.domElement);
+                  },
+                  function (error) {
+                    console.log("Error: " + error);
+                  }
+                );
+              }
+            }
+
+            {
+              if (container.getAttribute("articulus") == "00001") {
+                const ambientLight = new THREE.AmbientLight(0xffffff, 1);
+                scene.add(ambientLight);
+              } else if (container.getAttribute("articulus") == "00002") {
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.1);
+                scene.add(ambientLight);
+              }
+            }
+
+            {
+              const light = new THREE.DirectionalLight(0xffffff, 1);
+              light.position.set(-2, 0, 10);
+              light.lookAt(0, -1, 0);
+              scene.add(light);
+              // Helper;
+              // const helper = new THREE.DirectionalLightHelper(light, 1);
+              // scene.add(helper);
+            }
+
+            {
+              const light = new THREE.DirectionalLight(0xffffff, 0.1);
+              light.position.set(2, 0, 5);
+              light.lookAt(0, 1, 0);
+              scene.add(light);
+              // Helper;
+              // const helper = new THREE.DirectionalLightHelper(light, 1);
+              // scene.add(helper);
+            }
+
+            RectAreaLightUniformsLib.init();
+            {
+              const rectLight = new THREE.RectAreaLight(
+                0xffffff,
+                0.5,
+                100,
+                100
+              );
+              if (container.getAttribute("articulus") == "00001") {
+                const rectLight = new THREE.RectAreaLight(
+                  0xffffff,
+                  1,
+                  100,
+                  100
+                );
+              } else if (container.getAttribute("articulus") == "00002") {
+                const rectLight = new THREE.RectAreaLight(
+                  0xffffff,
+                  0.5,
+                  100,
+                  100
+                );
+              }
+              rectLight.position.set(-10, 0, 0);
+              rectLight.rotation.y = Math.PI + Math.PI / 4;
+              scene.add(rectLight);
+            }
+
+            {
+              const rectLight = new THREE.RectAreaLight(0xffffff, 1, 100, 100);
+              rectLight.position.set(10, 0, 0);
+              rectLight.rotation.y = Math.PI - Math.PI / 4;
+              scene.add(rectLight);
+            }
+
+            //OrbitControls
+            controls = new OrbitControls(camera, renderer.domElement);
+            controls.enableDamping = true;
+            controls.enableZoom = false;
+            controls.enablePan = false;
+
+            //Resize
+            window.addEventListener("resize", onWindowResize, false);
+
+            function onWindowResize() {
+              let slide = document.querySelector(".slider-block__slide");
+              console.log(slide.clientWidth);
+              console.log(slide.clientHeight);
+              camera.aspect = slide.clientWidth / slide.clientHeight;
+              camera.updateProjectionMatrix();
+
+              renderer.setSize(slide.clientWidth, slide.clientHeight);
+            }
+
+            // // Animate
+            function animate() {
+              requestAnimationFrame(animate);
+              controls.update();
+              if (scene) {
+                renderer.render(scene, camera);
+              }
+            }
+            animate();
+          }
         }
+        init();
+      });
+    </script>
 
-        {
-          const light = new THREE.DirectionalLight(0xffffff, 1);
-          light.position.set(-2, 0, 10);
-          light.lookAt(0, -1, 0);
-          scene.add(light);
-
-          // Helper
-          // const helper = new THREE.DirectionalLightHelper(light, 5)
-          // scene.add(helper)
-        }
-
-        {
-          const light = new THREE.DirectionalLight(0xffffff, 1);
-          light.position.set(2, 0, 5);
-          light.lookAt(0, 1, 0);
-          scene.add(light);
-
-          // Helper
-          // const helper = new THREE.DirectionalLightHelper(light, 5)
-          // scene.add(helper)
-        }
-
-        RectAreaLightUniformsLib.init();
-        {
-          const rectLight = new THREE.RectAreaLight(0xffffff, 1, 100, 100);
-          rectLight.position.set(-10, 0, 0);
-          rectLight.rotation.y = Math.PI + Math.PI / 4;
-          scene.add(rectLight);
-        }
-
-        {
-          const rectLight = new THREE.RectAreaLight(0xffffff, 1, 100, 100);
-          rectLight.position.set(10, 0, 0);
-          rectLight.rotation.y = Math.PI - Math.PI / 4;
-          scene.add(rectLight);
-        }
-
-        //OrbitControls
-        const controls = new OrbitControls(camera, renderer.domElement);
-
-        //Resize
-        window.addEventListener("resize", onWindowResize, false);
-
-        function onWindowResize() {
-          camera.aspect = window.innerWidth / window.innerHeight;
-          camera.updateProjectionMatrix();
-
-          renderer.setSize(window.innerWidth, window.innerHeight);
-        }
-
-        // Animate
-        function animate() {
-          requestAnimationFrame(animate);
-          controls.update();
-          renderer.render(scene, camera);
-        }
-        animate();
-      }
-
-      init();
-    </script> -->
-
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230619231356"></script>
-    <script src="js/app.min.js?_v=20230619231356"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230625122301"></script>
+    <script src="js/app.min.js?_v=20230625122301"></script>
   </body>
 </html>
