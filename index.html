@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link
     rel="stylesheet"
-    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230625122301"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230625153607"
   />
-  <link rel="stylesheet" href="css/style.min.css?_v=20230625122301" />
+  <link rel="stylesheet" href="css/style.min.css?_v=20230625153607" />
   <title></title>
 </head>
 
@@ -589,9 +589,7 @@
       <div class="wheel__body">
         <div class="wheel__form form-wheel">
           <h3 class="form-wheel__title">Колесо Фортуни</h3>
-          <p class="form-wheel__description">
-            Короткий опис, якщо такий потрібен
-          </p>
+          <p class="form-wheel__description">&nbsp;</p>
           <div class="form-wheel__block">
             <div level="2" class="wheel-of-fortune"></div>
           </div>
@@ -818,7 +816,7 @@
               class="slider-block__slide slider-slide swiper-slide swiper-slide-active"
             >
               <div class="slider-slide__image">
-                <img src="img/putler-nobg.png" alt="" />
+                <img src="img/slider-putler-nobg.png" alt="" />
               </div>
               <div class="slider-slide__circle">
                 <img src="img/active-circle.png" alt="" />
@@ -1197,7 +1195,6 @@
 
             function onWindowResize() {
               let slide = document.querySelector(".slider-block__slide");
-             
               camera.aspect = slide.clientWidth / slide.clientHeight;
               camera.updateProjectionMatrix();
 
@@ -1219,7 +1216,7 @@
       });
     </script>
 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230625122301"></script>
-    <script src="js/app.min.js?_v=20230625122301"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230625153607"></script>
+    <script src="js/app.min.js?_v=20230625153607"></script>
   </body>
 </html>
