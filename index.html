@@ -1197,8 +1197,7 @@
 
             function onWindowResize() {
               let slide = document.querySelector(".slider-block__slide");
-              console.log(slide.clientWidth);
-              console.log(slide.clientHeight);
+             
               camera.aspect = slide.clientWidth / slide.clientHeight;
               camera.updateProjectionMatrix();
 
