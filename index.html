@@ -1111,12 +1111,12 @@
                 }
               );
             } else if (container.getAttribute("articulus") == "00002") {
-              loader.load(
+             loader.load(
                 "./files/models/ship-model/kraisler.gltf",
                 (gltf) => {
                   scene.add(gltf.scene);
-                  gltf.scene.position.set(-2.5, 4, 0);
-                  // gltf.scene.scale.set(1.5, 1.5, 1.5);
+                  gltf.scene.position.set(-4, 2.5, 0);
+                  gltf.scene.scale.set(1.2, 1.2, 1.2);
                   container.appendChild(renderer.domElement);
                 },
                 function (error) {
