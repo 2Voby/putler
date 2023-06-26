@@ -3250,7 +3250,7 @@ html {
   -webkit-backdrop-filter: blur(4px);
           backdrop-filter: blur(4px);
   border-radius: 50%;
-  z-index: 3;
+  z-index: 5;
   width: 145%;
   border-radius: 0;
 }
@@ -3389,6 +3389,7 @@ html {
 .footer {
   position: relative;
   padding-bottom: 3rem;
+  z-index: 4;
 }
 
 .footer__content {
