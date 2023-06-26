@@ -3025,6 +3025,34 @@ html {
   transform: translateY(0);
 }
 
+.messages-popup {
+  z-index: 100;
+  position: fixed;
+  top: -100%;
+  left: 50%;
+  transform: translateX(-50%);
+  min-width: 150px;
+  max-width: 400px;
+  transition: all 0.5s ease;
+}
+
+.messages-popup__content {
+  background-color: #5a5a5a;
+  border: 1px solid #000000;
+  border-radius: 10px;
+  overflow: hidden;
+  color: #ffffff;
+  padding: 10px 20px;
+}
+
+.messages-popup__content.error {
+  border: 1px solid #ff0000;
+}
+
+.messages-popup.active {
+  top: 25px;
+}
+
 .header {
   position: absolute;
   top: 0;
