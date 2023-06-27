@@ -2453,9 +2453,23 @@ html {
   height: 344px;
 }
 
-.wheel-of-fortune__container {
+.wheel-of-fortune__container-wrapper {
   position: relative;
   overflow: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  width: 100%;
+  height: 100%;
+}
+
+.wheel-of-fortune__container {
+  position: absolute;
+  overflow: hidden;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
   top: 0;
   left: 0;
   border-radius: 50%;
