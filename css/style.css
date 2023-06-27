@@ -2547,6 +2547,20 @@ html {
      object-fit: contain;
 }
 
+.wheel-of-fortune__label-text .wheel-lvl-1-large-image {
+  width: 85%;
+  height: 85%;
+  top: -40%;
+  left: 14%;
+}
+
+.wheel-of-fortune__label-text .wheel-lvl-2-large-image {
+  width: 76%;
+  height: 76%;
+  top: -35%;
+  left: 19%;
+}
+
 .delivery-info {
   transition: transform 0.3s ease;
   background-color: rgba(51, 51, 51, 0.8078431373);
