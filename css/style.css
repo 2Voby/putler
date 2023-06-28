@@ -3643,6 +3643,82 @@ html {
     margin-bottom: 24px;
   }
 
+  .hero {
+    padding-top: 105px;
+  }
+
+  .hero__content {
+    flex-direction: column-reverse;
+  }
+
+  .hero__text-block {
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    max-width: 652px;
+    margin: 0 auto;
+  }
+
+@supports (font-size: clamp( 1.75rem , 1.0213870432rem  +  3.6544850498vw , 3.125rem )) {
+    .hero__title {
+      font-size: clamp( 1.75rem , 1.0213870432rem  +  3.6544850498vw , 3.125rem );
+    }
+}
+
+@supports not (font-size: clamp( 1.75rem , 1.0213870432rem  +  3.6544850498vw , 3.125rem )) {
+    .hero__title {
+      font-size: calc(1.75rem + 1.375 * (100vw - 19.9375rem) / 37.625);
+    }
+}
+
+  .hero__button {
+    max-width: none;
+    justify-content: center;
+    width: 100%;
+    max-width: 338px;
+    padding: 25px 30px;
+  }
+
+  .hero__button:not(:last-child) {
+    margin-bottom: 2.75rem;
+  }
+
+  .hero .slider-block__slider {
+    flex: 1 1 auto;
+    width: 100%;
+    max-width: 580px;
+    margin-bottom: 1rem;
+  }
+
+  .hero .slider-block__slider-wrapper {
+    min-height: 498px;
+  }
+
+  .hero .slider-block__slide {
+    min-height: 357px;
+    max-height: 357px;
+    width: 251px;
+  }
+
+@supports (font-size: clamp( 1.625rem , 1.3477722772rem  +  1.3861386139vw , 2.5rem )) {
+    .hero .slider-block__slide .slider-slide__text span {
+      font-size: clamp( 1.625rem , 1.3477722772rem  +  1.3861386139vw , 2.5rem );
+    }
+}
+
+@supports not (font-size: clamp( 1.625rem , 1.3477722772rem  +  1.3861386139vw , 2.5rem )) {
+    .hero .slider-block__slide .slider-slide__text span {
+      font-size: calc(1.625rem + 0.875 * (100vw - 20rem) / 63.125);
+    }
+}
+
+  .hero .slider-block__instruction {
+    margin-top: 0.5rem;
+  }
+
   .footer {
     padding-bottom: 1.5rem;
     margin-top: 1.25rem;
@@ -3659,6 +3735,12 @@ html {
 
   .footer .navigation-language {
     margin-left: auto;
+  }
+}
+
+@media (max-width: 920px) and (max-width: 19.9375em) {
+  .hero__title {
+    font-size: inherit;
   }
 }
 
@@ -6080,82 +6162,6 @@ html {
       height: calc(1rem + 0.5 * (100vw - 19.5rem) / 28.5625);
     }
 }
-
-  .hero {
-    padding-top: 105px;
-  }
-
-  .hero__content {
-    flex-direction: column-reverse;
-  }
-
-  .hero__text-block {
-    flex: 1 1 auto;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    max-width: 652px;
-    margin: 0 auto;
-  }
-
-@supports (font-size: clamp( 1.75rem , 0.7752777778rem  +  4.8888888889vw , 3.125rem )) {
-    .hero__title {
-      font-size: clamp( 1.75rem , 0.7752777778rem  +  4.8888888889vw , 3.125rem );
-    }
-}
-
-@supports not (font-size: clamp( 1.75rem , 0.7752777778rem  +  4.8888888889vw , 3.125rem )) {
-    .hero__title {
-      font-size: calc(1.75rem + 1.375 * (100vw - 19.9375rem) / 28.125);
-    }
-}
-
-  .hero__button {
-    max-width: none;
-    justify-content: center;
-    width: 100%;
-    max-width: 338px;
-    padding: 25px 30px;
-  }
-
-  .hero__button:not(:last-child) {
-    margin-bottom: 2.75rem;
-  }
-
-  .hero .slider-block__slider {
-    flex: 1 1 auto;
-    width: 100%;
-    max-width: 580px;
-    margin-bottom: 1rem;
-  }
-
-  .hero .slider-block__slider-wrapper {
-    min-height: 498px;
-  }
-
-  .hero .slider-block__slide {
-    min-height: 357px;
-    max-height: 357px;
-    width: 251px;
-  }
-
-@supports (font-size: clamp( 1.625rem , 1.3477722772rem  +  1.3861386139vw , 2.5rem )) {
-    .hero .slider-block__slide .slider-slide__text span {
-      font-size: clamp( 1.625rem , 1.3477722772rem  +  1.3861386139vw , 2.5rem );
-    }
-}
-
-@supports not (font-size: clamp( 1.625rem , 1.3477722772rem  +  1.3861386139vw , 2.5rem )) {
-    .hero .slider-block__slide .slider-slide__text span {
-      font-size: calc(1.625rem + 0.875 * (100vw - 20rem) / 63.125);
-    }
-}
-
-  .hero .slider-block__instruction {
-    margin-top: 0.5rem;
-  }
 }
 
 @media (max-width: 768px) and (max-width: 19.9375em) {
@@ -6879,10 +6885,6 @@ html {
 
   .chat .chat-form {
     padding-left: inherit;
-  }
-
-  .hero__title {
-    font-size: inherit;
   }
 }
 
@@ -7822,10 +7824,6 @@ html {
   .chat .chat-form .chat-navigation__button img {
     height: inherit;
   }
-
-  .hero__title {
-    font-size: inherit;
-  }
 }
 
 @media (max-width: 580px) and (min-width: 48.0625em) {
@@ -7834,6 +7832,12 @@ html {
   }
 
   .wheel .form-wheel .wheel-navigation__text {
+    font-size: inherit;
+  }
+}
+
+@media (max-width: 920px) and (min-width: 57.5625em) {
+  .hero__title {
     font-size: inherit;
   }
 }
