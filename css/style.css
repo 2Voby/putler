@@ -3613,6 +3613,72 @@ html {
 }
 
 @media (max-width: 920px) {
+@supports (padding-top: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
+    .balance-block:hover .balance-descr {
+      padding-top: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem );
+    }
+}
+
+@supports not (padding-top: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
+    .balance-block:hover .balance-descr {
+      padding-top: calc(1rem + 0.5 * (100vw - 20rem) / 63.125);
+    }
+}
+
+@supports (padding-bottom: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
+    .balance-block:hover .balance-descr {
+      padding-bottom: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem );
+    }
+}
+
+@supports not (padding-bottom: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
+    .balance-block:hover .balance-descr {
+      padding-bottom: calc(1rem + 0.5 * (100vw - 20rem) / 63.125);
+    }
+}
+
+@supports (padding-left: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
+    .balance-block:hover .balance-descr {
+      padding-left: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem );
+    }
+}
+
+@supports not (padding-left: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
+    .balance-block:hover .balance-descr {
+      padding-left: calc(1rem + 0.5 * (100vw - 20rem) / 63.125);
+    }
+}
+
+@supports (padding-right: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
+    .balance-block:hover .balance-descr {
+      padding-right: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem );
+    }
+}
+
+@supports not (padding-right: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
+    .balance-block:hover .balance-descr {
+      padding-right: calc(1rem + 0.5 * (100vw - 20rem) / 63.125);
+    }
+}
+
+  .balance-block .balance-descr {
+    top: auto;
+    bottom: calc(100% + 8px);
+    left: 0;
+  }
+
+@supports (width: clamp( 18.75rem , 16.7698019802rem  +  9.900990099vw , 25rem )) {
+    .balance-block .balance-descr {
+      width: clamp( 18.75rem , 16.7698019802rem  +  9.900990099vw , 25rem );
+    }
+}
+
+@supports not (width: clamp( 18.75rem , 16.7698019802rem  +  9.900990099vw , 25rem )) {
+    .balance-block .balance-descr {
+      width: calc(18.75rem + 6.25 * (100vw - 20rem) / 63.125);
+    }
+}
+
   .cart__body {
     margin-top: 7.125rem;
     margin-bottom: 24px;
@@ -3742,74 +3808,6 @@ html {
   .hero__title {
     font-size: inherit;
   }
-}
-
-@media (max-width: 769px) {
-@supports (padding-top: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
-    .balance-block:hover .balance-descr {
-      padding-top: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem );
-    }
-}
-
-@supports not (padding-top: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
-    .balance-block:hover .balance-descr {
-      padding-top: calc(1rem + 0.5 * (100vw - 20rem) / 63.125);
-    }
-}
-
-@supports (padding-bottom: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
-    .balance-block:hover .balance-descr {
-      padding-bottom: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem );
-    }
-}
-
-@supports not (padding-bottom: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
-    .balance-block:hover .balance-descr {
-      padding-bottom: calc(1rem + 0.5 * (100vw - 20rem) / 63.125);
-    }
-}
-
-@supports (padding-left: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
-    .balance-block:hover .balance-descr {
-      padding-left: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem );
-    }
-}
-
-@supports not (padding-left: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
-    .balance-block:hover .balance-descr {
-      padding-left: calc(1rem + 0.5 * (100vw - 20rem) / 63.125);
-    }
-}
-
-@supports (padding-right: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
-    .balance-block:hover .balance-descr {
-      padding-right: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem );
-    }
-}
-
-@supports not (padding-right: clamp( 1rem , 0.8415841584rem  +  0.7920792079vw , 1.5rem )) {
-    .balance-block:hover .balance-descr {
-      padding-right: calc(1rem + 0.5 * (100vw - 20rem) / 63.125);
-    }
-}
-
-  .balance-block .balance-descr {
-    top: auto;
-    bottom: calc(100% + 8px);
-    left: 0;
-  }
-
-@supports (width: clamp( 18.75rem , 16.7698019802rem  +  9.900990099vw , 25rem )) {
-    .balance-block .balance-descr {
-      width: clamp( 18.75rem , 16.7698019802rem  +  9.900990099vw , 25rem );
-    }
-}
-
-@supports not (width: clamp( 18.75rem , 16.7698019802rem  +  9.900990099vw , 25rem )) {
-    .balance-block .balance-descr {
-      width: calc(18.75rem + 6.25 * (100vw - 20rem) / 63.125);
-    }
-}
 }
 
 @media (max-width: 768px) {
