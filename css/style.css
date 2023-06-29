@@ -3211,7 +3211,7 @@ html {
 }
 
 .hero {
-  padding-top: 110px;
+  padding-top: 100px;
   position: relative;
 }
 
@@ -3492,7 +3492,8 @@ html {
 
 .footer {
   position: relative;
-  padding-bottom: 3rem;
+  padding-bottom: 0.5rem;
+  padding-top: -30px;
   z-index: 4;
 }
 
@@ -3559,20 +3560,20 @@ html {
 }
 
 @media (max-width: 1920px) {
-@supports (font-size: clamp( 3.125rem , 2.7923894189rem  +  0.6938421509vw , 3.625rem )) {
+@supports (font-size: clamp( 3.125rem , 2.665rem  +  0.8vw , 3.625rem )) {
     .hero__title {
-      font-size: clamp( 3.125rem , 2.7923894189rem  +  0.6938421509vw , 3.625rem );
+      font-size: clamp( 3.125rem , 2.665rem  +  0.8vw , 3.625rem );
     }
 }
 
-@supports not (font-size: clamp( 3.125rem , 2.7923894189rem  +  0.6938421509vw , 3.625rem )) {
+@supports not (font-size: clamp( 3.125rem , 2.665rem  +  0.8vw , 3.625rem )) {
     .hero__title {
-      font-size: calc(3.125rem + 0.5 * (100vw - 47.9375rem) / 72.0625);
+      font-size: calc(3.125rem + 0.5 * (100vw - 57.5rem) / 62.5);
     }
 }
 }
 
-@media (max-width: 1920px) and (max-width: 47.9375em) {
+@media (max-width: 1920px) and (max-width: 57.5em) {
   .hero__title {
     font-size: inherit;
   }
@@ -3710,7 +3711,7 @@ html {
   }
 
   .hero {
-    padding-top: 105px;
+    padding-top: 100px;
   }
 
   .hero__content {
@@ -3728,35 +3729,32 @@ html {
     margin: 0 auto;
   }
 
-@supports (font-size: clamp( 1.75rem , 1.0213870432rem  +  3.6544850498vw , 3.125rem )) {
-    .hero__title {
-      font-size: clamp( 1.75rem , 1.0213870432rem  +  3.6544850498vw , 3.125rem );
-    }
-}
+  .hero__title {
+    font-size: 2.75rem;
+    margin-bottom: 1.5rem;
+  }
 
-@supports not (font-size: clamp( 1.75rem , 1.0213870432rem  +  3.6544850498vw , 3.125rem )) {
-    .hero__title {
-      font-size: calc(1.75rem + 1.375 * (100vw - 19.9375rem) / 37.625);
-    }
-}
+  .hero__description {
+    margin-bottom: 1.875rem;
+  }
 
   .hero__button {
     max-width: none;
     justify-content: center;
     width: 100%;
     max-width: 338px;
-    padding: 25px 30px;
+    padding: 22px 30px;
   }
 
   .hero__button:not(:last-child) {
-    margin-bottom: 2.75rem;
+    margin-bottom: 2.5rem;
   }
 
   .hero .slider-block__slider {
     flex: 1 1 auto;
     width: 100%;
-    max-width: 580px;
-    margin-bottom: 1rem;
+    max-width: 700px;
+    margin-bottom: 0.875rem;
   }
 
   .hero .slider-block__slider-wrapper {
@@ -3787,12 +3785,11 @@ html {
 
   .footer {
     padding-bottom: 1.5rem;
-    margin-top: 1.25rem;
   }
 
   .footer .socials-block {
     position: absolute;
-    bottom: 24px;
+    bottom: 10px;
     display: flex;
     flex-direction: column;
     row-gap: 16px;
@@ -3801,12 +3798,6 @@ html {
 
   .footer .navigation-language {
     margin-left: auto;
-  }
-}
-
-@media (max-width: 920px) and (max-width: 19.9375em) {
-  .hero__title {
-    font-size: inherit;
   }
 }
 
@@ -6160,6 +6151,47 @@ html {
       height: calc(1rem + 0.5 * (100vw - 19.5rem) / 28.5625);
     }
 }
+
+  .hero__title {
+    font-size: 2.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+@supports (font-size: clamp( 1.75rem , 0.803164557rem  +  4.0506329114vw , 2.75rem )) {
+    .hero__title {
+      font-size: clamp( 1.75rem , 0.803164557rem  +  4.0506329114vw , 2.75rem );
+    }
+}
+
+@supports not (font-size: clamp( 1.75rem , 0.803164557rem  +  4.0506329114vw , 2.75rem )) {
+    .hero__title {
+      font-size: calc(1.75rem + 1 * (100vw - 23.375rem) / 24.6875);
+    }
+}
+
+@supports (font-size: clamp( 0.9375rem , 0.5824367089rem  +  1.5189873418vw , 1.3125rem )) {
+    .hero__description {
+      font-size: clamp( 0.9375rem , 0.5824367089rem  +  1.5189873418vw , 1.3125rem );
+    }
+}
+
+@supports not (font-size: clamp( 0.9375rem , 0.5824367089rem  +  1.5189873418vw , 1.3125rem )) {
+    .hero__description {
+      font-size: calc(0.9375rem + 0.375 * (100vw - 23.375rem) / 24.6875);
+    }
+}
+
+@supports (margin-bottom: clamp( 1rem , -0.4202531646rem  +  6.0759493671vw , 2.5rem )) {
+    .hero__description {
+      margin-bottom: clamp( 1rem , -0.4202531646rem  +  6.0759493671vw , 2.5rem );
+    }
+}
+
+@supports not (margin-bottom: clamp( 1rem , -0.4202531646rem  +  6.0759493671vw , 2.5rem )) {
+    .hero__description {
+      margin-bottom: calc(1rem + 1.5 * (100vw - 23.375rem) / 24.6875);
+    }
+}
 }
 
 @media (max-width: 768px) and (max-width: 19.9375em) {
@@ -6938,6 +6970,20 @@ html {
   }
 }
 
+@media (max-width: 768px) and (max-width: 23.375em) {
+  .hero__title {
+    font-size: inherit;
+  }
+
+  .hero__description {
+    font-size: inherit;
+  }
+
+  .hero__description {
+    margin-bottom: inherit;
+  }
+}
+
 @media (max-width: 580px) {
   .wheel .form-wheel .wheel-buttons {
     flex-direction: column;
@@ -7000,6 +7046,12 @@ html {
   }
 }
 
+@media (max-width: 540px) {
+  .footer {
+    margin-top: 1.25rem;
+  }
+}
+
 @media (max-width: 500px) {
   .wheel-of-fortune__arrow {
     left: 82%;
@@ -7040,6 +7092,10 @@ html {
   .hero .slider-block__slider-button-next {
     right: 1.1363636364%;
   }
+
+  .footer {
+    display: none;
+  }
 }
 
 @media (max-width: 375px) {
@@ -7049,6 +7105,28 @@ html {
 
   .delivery__body .delivery-form .form-body .body-main__input-block .whose-block__button {
     grid-template-columns: repeat(1, 1fr);
+  }
+
+  .hero__title {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .hero__description {
+    font-size: 15px;
+    margin-bottom: 1rem;
+  }
+
+  .hero__button {
+    max-width: none;
+    justify-content: center;
+    width: 100%;
+    max-width: 338px;
+    padding: 22px 30px;
+  }
+
+  .hero__button:not(:last-child) {
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -7822,6 +7900,18 @@ html {
   .chat .chat-form .chat-navigation__button img {
     height: inherit;
   }
+
+  .hero__title {
+    font-size: inherit;
+  }
+
+  .hero__description {
+    font-size: inherit;
+  }
+
+  .hero__description {
+    margin-bottom: inherit;
+  }
 }
 
 @media (max-width: 580px) and (min-width: 48.0625em) {
@@ -7830,12 +7920,6 @@ html {
   }
 
   .wheel .form-wheel .wheel-navigation__text {
-    font-size: inherit;
-  }
-}
-
-@media (max-width: 920px) and (min-width: 57.5625em) {
-  .hero__title {
     font-size: inherit;
   }
 }
