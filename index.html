@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link
     rel="stylesheet"
-    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230701234023"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230702153925"
   />
-  <link rel="stylesheet" href="css/style.min.css?_v=20230701234023" />
+  <link rel="stylesheet" href="css/style.min.css?_v=20230702153925" />
   <title></title>
 </head>
 
@@ -108,7 +108,7 @@
               </svg>
             </button>
             <button
-              class="header__control control control-white header-card-item open-cart"
+              class="header__control control control-white header-card-item cart-button open-cart"
             >
               <img src="img/shopping-bag.png" alt="" />
               <p>0</p>
@@ -762,14 +762,14 @@
               <p class="chat-message__text">
                 Вітаю, друже!👋 Які в тебе є до мене питання? Задавай не
                 соромся, я тут спеціально для цього. P.S не забудь вказати свій
-                контакт, щоб ми з тобою звязались ;)
+                Viber/Telegram/WhatsApp, щоб ми з тобою звязались ;)
               </p>
             </div>
           </div>
           <div class="chat-form__navigation chat-navigation">
             <div class="chat-navigation__inputs">
               <input
-                placeholder="Як ми можемо з вами звязатися?"
+                placeholder="Укажіть Ваш Viber/Telegram/WhatsApp"
                 type="text"
                 class="contacts-input"
               />
@@ -801,9 +801,9 @@
             Символи, <br />
             які зрозумілі без слів
           </h2>
-          <p class="hero__description">
+          <div class="hero__description">
             <span>Навісна прикраса</span> у ваш автомобіль
-          </p>
+          </div>
           <button class="hero__button login-first">
             <img src="img/shopping-bag.png" alt="" />
             <p>Придбати</p>
@@ -830,7 +830,7 @@
               articulus="00002"
               class="slider-block__slide slider-slide swiper-slide"
             >
-              <div class="slider-slide__image">
+              <div class="slider-slide__image kraisler-image">
                 <img src="img/kraisler-nobg.png" alt="" />
               </div>
               <div class="slider-slide__circle">
@@ -1122,7 +1122,7 @@
                 "./files/models/ship-model/kraisler.gltf",
                 (gltf) => {
                   scene.add(gltf.scene);
-                  gltf.scene.position.set(-3.7, 1.8, 0);
+                  gltf.scene.position.set(-3.75, 2.4, 0);
                   gltf.scene.scale.set(1.2, 1.2, 1.2);
                   container.appendChild(renderer.domElement);
                 },
@@ -1220,7 +1220,7 @@
       init();
     </script>
 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230701234023"></script>
-    <script src="js/app.min.js?_v=20230701234023"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230702153925"></script>
+    <script src="js/app.min.js?_v=20230702153925"></script>
   </body>
 </html>
