@@ -3751,6 +3751,18 @@ html {
   }
 }
 
+@media (max-width: 1050px) {
+  .hero .slider-block__slider-wrapper {
+    min-height: 534px;
+  }
+
+  .hero .slider-block__slide {
+    min-height: 383px;
+    max-height: 383px;
+    width: 270px;
+  }
+}
+
 @media (max-width: 1024px) {
   .header__logo {
     position: relative;
