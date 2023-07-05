@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link
     rel="stylesheet"
-    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230705134438"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230705143411"
   />
-  <link rel="stylesheet" href="css/style.min.css?_v=20230705134438" />
+  <link rel="stylesheet" href="css/style.min.css?_v=20230705143411" />
   <title></title>
 </head>
 
@@ -851,12 +851,12 @@
             </div>
           </div>
           <div
-            class="slider-block__slider-button slider-block__slider-button-prev swiper-button-prev"
+            class="slider-block__slider-button swiper-button-next slider-block__slider-button-prev"
           >
             <img src="img/slider-prev.png" alt="" />
           </div>
           <div
-            class="slider-block__slider-button slider-block__slider-button-next swiper-button-next"
+            class="slider-block__slider-button swiper-button-prev slider-block__slider-button-next"
           >
             <img src="img/slider-next.png" alt="" />
           </div>
@@ -1035,7 +1035,7 @@
           } catch (error) {
             console.log(error);
           }
-        }, 900);
+        }, 920);
       });
       heroButtonNext.addEventListener("click", function () {
         if (scene != null) {
@@ -1047,7 +1047,7 @@
           } catch (error) {
             console.log(error);
           }
-        }, 900);
+        }, 920);
       });
 
       function removeScene() {
@@ -1232,7 +1232,7 @@
       }
     </script>
 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230705134438"></script>
-    <script src="js/app.min.js?_v=20230705134438"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230705143411"></script>
+    <script src="js/app.min.js?_v=20230705143411"></script>
   </body>
 </html>
