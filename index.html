@@ -6,9 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link
     rel="stylesheet"
-    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230704134843"
+    href="https://unpkg.com/swiper@8/swiper-bundle.min.css?_v=20230705134438"
   />
-  <link rel="stylesheet" href="css/style.min.css?_v=20230704134843" />
+  <link rel="stylesheet" href="css/style.min.css?_v=20230705134438" />
   <title></title>
 </head>
 
@@ -823,7 +823,7 @@
                 <img src="img/active-circle.png" alt="" />
               </div>
               <div class="slider-slide__label">
-                <img src="img/slide-label-400.png" alt="" />
+                <img src="img/slide-label-500.png" alt="" />
               </div>
             </div>
             <div
@@ -837,7 +837,7 @@
                 <img src="img/active-circle.png" alt="" />
               </div>
               <div class="slider-slide__label">
-                <img src="img/slide-label-600.png" alt="" />
+                <img src="img/slide-label-700.png" alt="" />
               </div>
             </div>
             <div
@@ -1030,7 +1030,11 @@
           removeScene();
         }
         setTimeout(() => {
-          init();
+          try {
+            init();
+          } catch (error) {
+            console.log(error);
+          }
         }, 900);
       });
       heroButtonNext.addEventListener("click", function () {
@@ -1038,7 +1042,11 @@
           removeScene();
         }
         setTimeout(() => {
-          init();
+          try {
+            init();
+          } catch (error) {
+            console.log(error);
+          }
         }, 900);
       });
 
@@ -1217,10 +1225,14 @@
           animate();
         }
       }
-      init();
+      try {
+        init();
+      } catch (error) {
+        console.log(error);
+      }
     </script>
 
-    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230704134843"></script>
-    <script src="js/app.min.js?_v=20230704134843"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js?_v=20230705134438"></script>
+    <script src="js/app.min.js?_v=20230705134438"></script>
   </body>
 </html>
